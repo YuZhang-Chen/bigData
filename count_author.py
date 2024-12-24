@@ -1,7 +1,7 @@
 import json
 
 # 讀取 data.json 文件
-def count_author():
+def count_author(target):
     with open('data.json', 'r', encoding='utf-8') as file:
         data = json.load(file)
 
@@ -26,5 +26,9 @@ def count_author():
         top_authors.append((author, count))
         current_count = count
     
+    string = f"{target}百大暢銷書籍作家排行："
+
     for author, count in top_authors:
-        print(f"{author}: {count}本")
+        string += f"{author}: {count}本\n"
+
+    return string
